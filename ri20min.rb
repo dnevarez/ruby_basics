@@ -26,7 +26,7 @@ class MegaGreeter
   def say_bye
     if @names.nil?
       puts "..."
-    elsif @names.respond_to?("join")
+    elsif @names.respond_to?("join") # Uses join method instead of each. If @names responds to the method it will use it. This method of not caring about the actual type of a variable, just relying on what methods it supports is known as “Duck Typing”, as in “if it walks like a duck and quacks like a duck…”. The benefit of this is that it doesn’t unnecessarily restrict the types of variables that are supported. If someone comes up with a new kind of list class, as long as it implements the join method with the same semantics as other lists, everything will work as planned.
       # Join the list elements with commas
       puts "Goodbye #{@names.join(", ")}.  Come back soon!"
     else
@@ -35,7 +35,7 @@ class MegaGreeter
   end
 end
 
-if __FILE__ == $0
+if __FILE__ == $0 # __FILE__ is a variable that contains the name of the current file. $0 is the name of the file used to start the program. This check says “If this is the main file being used…” This allows a file to be used as a library, and not to execute code in that context, but if the file is being used as an executable, then execute that code.
   mg = MegaGreeter.new
   mg.say_hi
   mg.say_bye
