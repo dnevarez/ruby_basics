@@ -57,3 +57,24 @@ greeter.say_hi # => "Hi Andy!"
 greeter.name="Betty"
 
 greeter.say_hi # => "Hi Betty!"
+
+# Arrays are lists between square brackets, just like in javascript
+
+ movie_array = ['transformers', 'pirates of the carribean', 'batman']
+
+ # Hashes are lists with key value pairs, just like objects in javascript.
+
+ movie_ratings = Hash.new(0)
+
+ # movie_ratings['transformers'] = 1
+ # => 1
+ # movie_ratings['pirates of the carribean'] = 3
+ # => 3
+ # movie_ratings.length => 2
+ # movie_ratings => {"transformers"=>1, "pirates of the carribean"=>3}
+
+ # or
+
+ # movie_ratings['transformers'] = 'crap'
+ # => "crap"
+ # movie_ratings => {"transformers"=>"crap", "pirates of the carribean"=>3}
