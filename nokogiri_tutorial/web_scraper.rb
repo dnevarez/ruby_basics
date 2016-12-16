@@ -1,3 +1,5 @@
+# This is a basic web scraping program based on Sam Callenders tutorial at https://www.distilled.net/resources/web-scraping-with-ruby-and-nokogiri-for-beginners/
+
 require 'HTTParty'
 require 'Nokogiri'
 require 'JSON'
