@@ -239,3 +239,130 @@ produce.keys
 # => ["apples", "oranges", "carrots", "grapes"]
 produce.values
 # => [3, 6, 12, 221]
+
+
+# Simplified Hash Syntax
+# Symbols are very commonly used as the keys of a has. When all the keys are symbols a shorthand syntax can be used.
+
+produce = {apples: 3, oranges: 1, carrots: 12}
+# => {:apples=>3, :oranges=>1, :carrots=>12}
+puts "There are #{produce[:oranges]} oranges in the fridge."
+# There are 1 oranges in the fridge.
+# => nil
+
+# NOTE: the keys end with a colon rather than beginning with one, even though these are symbols. This simplified syntax works with Ruby version 1.9 and higher. To find out which version of Ruby you have type "ruby -v" into the console.
+
+###########
+
+#9
+#Conditionals
+
+# Conditional statements evaluate to either true or false.
+# The most common conditional operators are == (equal), > (greater than),
+# >= (greater than or equal to), < (less than), and <= (less than or equal to).
+
+# There are methods that return true or false, so they are used in conditional statements.
+# Every object has the method .nil? which will only return true if the object is nil.
+# Arrays have the method .include? which will return true if the specified value is in the array.
+
+# The convention in Ruby is that a method which returns true or false should have a name ending in a ?.
+
+# Like javascript we have if, elseif and else in the form of if, elsif and else.
+
+def water_status(minutes)
+  if minutes < 7
+    puts "The water is not boiling yet."
+  elsif minutes == 7
+    puts "It's just barely boiling"
+  elsif minutes == 8
+    puts "It's boiling!"
+  else
+    puts "Hot! Hot! Hot!"
+  end
+end
+
+# Equality vs Assigment
+
+#  = is an assigment. It means the value on the left equals the value on the right. Telling, not asking.
+
+# == is a question. Are these two values equal? Asking, not telling.
+
+# There are also 'logical and' and 'logical or' operators, like in javascript, with && and ||
+
+#########
+
+# 10
+# Nil & Nothing
+
+# nil is Ruby's way of refering to nothingness.
+# it often comes up in errors when you try to use something that doesn't exist yet.
+
+# example
+numbers = [1, 2, 3]
+# => [1, 2, 3]
+numbers[3]
+# => nil
+numbers[2]
+# => 3
+
+# Empty strings and the number zero are still something and won't result in nil.
+
+########
+
+# 11
+# Objects, Attributes and Methods
+# Ruby is object-oriented.
+
+# This means all the things we interact with in the VM are objects. Each piece of data, an object.
+# Objects hold information called attributes and they can perform actions, called methods.
+
+# Common objects in Ruby
+# Classes and Instances
+
+# Classes are abstract descriptions of a category or type of thing. It defines what attributes and methods all objects of that type have.
+
+# Defining a class
+
+# If we model a school, we'd likely create a class named Student that represents the abstract idea of a student.
+# It would then define attributes like a first and last name, and a phone number. Along with an action (method) like introduction.
+
+class Student
+  attr_accessor :first_name, :last_name, :primary_phone_number
+
+  def introduction
+    puts "Hi, I'm #{first_name}"
+  end
+end
+
+# attr_accessor is used to define attributes for instances of a class.
+
+# The class itself doesn't represent the student, just the idea of what the student is like.
+# To represent an actual student we must create an instance of the student class we defined above.
+
+frank = Student.new
+frank.first_name = "Frank"
+frank.introduction
+# => "Hi, I'm Frank"
+
+# frank is now an instance of the Student class.
+
+# Sometimes methods take one or more arguments to tell them what to do.
+
+# if we redefine Student as such
+
+class Student
+  attr_accessor :first_name, :last_name, :primary_phone_number
+
+  def introduction
+    puts "Hi #{target}, I'm #{first_name}"
+  end
+end
+
+# And then the following:
+
+frank = Student.new
+frank.first_name = "Frank"
+frank.introduction('Katrina')
+# We get: => Hi Katrina, I'm Frank
+
+# In Ruby, whenever a method is called, a value is returned.
