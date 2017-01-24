@@ -366,3 +366,23 @@ frank.introduction('Katrina')
 # We get: => Hi Katrina, I'm Frank
 
 # In Ruby, whenever a method is called, a value is returned.
+# If we add a favorite_number method to our Student class.
+
+class Student
+  attr_accessor :first_name, :last_name, :primary_phone_number
+
+  def introduction(target)
+    puts "Hi #{target}, I'm #{first_name}!"
+  end
+
+  def favorite_number
+    7
+  end
+end
+
+# favorite_number will return 7
+
+frank = Student.new
+frank.first_name = "Frank"
+puts "Frank's favorite number is #{frank.favorite_number}."
+# => Frank's favorite number is 7.
