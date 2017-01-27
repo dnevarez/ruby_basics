@@ -82,3 +82,23 @@ greeter.say_hi # => "Hi Betty!"
  # movie_ratings['transformers'] = 'crap'
  # => "crap"
  # movie_ratings => {"transformers"=>"crap", "pirates of the carribean"=>3}
+
+
+# puts is similar to console.log() in javascript.
+puts 'Hello world!'
+# => 'Hello world!'
+
+# gets is short for get string and is asking for user input.
+puts gets
+this is what I type
+# => this is what I type
+
+# however, by default, gets will also record the enter key.
+puts gets + ' here am I'
+this is what I type
+# this is what I type
+# => ' here am I'
+
+# To avoid this we can use chomp, a method that ignores `enter`
+puts gets.chomp + ' here am I'
+# => this is what I type here am I
